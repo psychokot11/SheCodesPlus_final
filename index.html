@@ -16,7 +16,7 @@
   <body>
     <div class="container">
       <div class="appBody">
-        <div class="row align-items-center">
+        <div class="row">
           <div class="col-7">
             <input
               type="search"
@@ -37,9 +37,45 @@
             </button>
           </div>
         </div>
-
-        <h1>Hello World</h1>
+        <h1 clas="searchedCity" id="searched-city">City</h1>
+        <ul class="dateAndConditions" id="date-and-conditions">
+          <li>
+            <p>
+              <span class="currentDay" id="current-day">Friday</span>
+              <span class="currentTime" id="current-time">11:11</span>
+            </p>
+          </li>
+          <li class="mainCondition" id="main-conditions">Sunny</li>
+        </ul>
+       
+      <div class="row">
+        <div class="col">
+          <h2>
+            <span class="weatherPic" id="weather-pic">☀</span
+            ><span class="temperature" id="temperature"
+              >12
+              <sup
+                ><a href="#" class="celcius" id="celcius">°C</a> |
+                <a href="#" class="farenheit" id="farenheit">°F</a></sup
+              ></span
+            >
+          </h2>
+        </div>
+        <div class="col">
+          <ul class="conditions" id="conditions">
+            <li>☂Precipitation: <span id="precipitation">0%</span></li>
+            <li>💦Humidity: <span id="humidity"></span>47%</li>
+            <li>💨Wind: <span id="wind"></span>200km/h</li>
+          </ul>
+        </div>
       </div>
+      <footer class="footer" id="footer"><a
+          href="https://github.com/psychokot11/SheCodesPlus_final"
+          class="openSourceFooterLink"
+          target="_blank"
+          >Open-source code</a
+        >
+        by Zosia S</footer>
     </div>
     <script src="src/app.js"></script>
   </body>
