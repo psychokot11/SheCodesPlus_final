@@ -12,72 +12,93 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
       <div class="appBodyWrapper">
         <div class="appBody">
-        <div class="row">
-          <div class="col-7">
-            <input
-              type="search"
-              class="searchField"
-              id="search-field"
-              placeholder="Enter the city name..."
-              autocomplete="off"
-            />
+          <div class="row">
+            <div class="col-7">
+              <input
+                type="search"
+                class="searchField"
+                id="search-field"
+                placeholder="Enter the city name..."
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-5">
+              <button
+                type="button"
+                class="btn btn-dark"
+                class="searchButton"
+                id="search-button"
+              >
+                Search
+              </button>
+            </div>
           </div>
-          <div class="col-5">
-            <button
-              type="button"
-              class="btn btn-dark"
-              class="searchButton"
-              id="search-button"
-            >
-              Search
-            </button>
-          </div>
-        </div>
-        <h1 clas="searchedCity" id="searched-city">City</h1>
-        <ul class="dateAndConditions" id="date-and-conditions">
-          <li>
-            <p>
-              <span class="currentDay" id="current-day">Friday</span>
-              <span class="currentTime" id="current-time">11:11</span>
-            </p>
-          </li>
-          <li class="mainCondition" id="main-conditions">Sunny</li>
-        </ul>
-       
-      <div class="row">
-        <div class="col">
-          <h2>
-            <span class="weatherPic" id="weather-pic" class="float-left">☀</span
-            ><span class="temperature" id="temperature"
-              >12
-              <sup
-                ><a href="#" class="celcius" id="celcius">°C</a> |
-                <a href="#" class="farenheit" id="farenheit">°F</a></sup
-              ></span
-            >
-          </h2>
-        </div>
-        <div class="col">
-          <ul class="conditions" id="conditions">
-            <li>☂Precipitation: <span id="precipitation">0%</span></li>
-            <li>💦Humidity: <span id="humidity"></span>47%</li>
-            <li>💨Wind: <span id="wind"></span>200km/h</li>
+          <h1 clas="searchedCity" id="searched-city">City</h1>
+          <ul class="dateAndConditions" id="date-and-conditions">
+            <li>
+              <p>
+                <span class="currentDay" id="current-day">Friday</span>
+                <span class="currentTime" id="current-time">11:11</span>
+              </p>
+            </li>
+            <li class="mainCondition" id="main-conditions">Sunny</li>
           </ul>
+
+          <div class="row">
+            <div class="col">
+              <h2 class="moreInfo">
+                <span class="weatherPic" id="weather-pic" class="float-left"
+                  >☀</span
+                ><span class="temperature" id="temperature"
+                  ><strong>12</strong>
+                  <small
+                    ><sup
+                      ><a href="#" class="celcius" id="celcius">°C</a> |
+                      <a href="#" class="farenheit" id="farenheit">°F</a></sup
+                    ></small
+                  ></span
+                >
+              </h2>
+            </div>
+            <div class="col">
+              <ul class="conditions" id="conditions">
+                <li>
+                  <span class="weatherEmojis">☂</span>Precipitation:
+                  <span id="precipitation">0%</span>
+                </li>
+                <li>
+                  <span class="weatherEmojis">💦</span>Humidity:
+                  <span id="humidity"></span>47%
+                </li>
+                <li>
+                  <span class="weatherEmojis">💨</span>Wind:
+                  <span id="wind"></span>200km/h
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+        <footer class="footer" id="footer">
+          <a
+            href="https://github.com/psychokot11/SheCodesPlus_final"
+            class="openSourceFooterLink"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Zosia S
+        </footer>
       </div>
-      <footer class="footer" id="footer"><a
-          href="https://github.com/psychokot11/SheCodesPlus_final"
-          class="openSourceFooterLink"
-          target="_blank"
-          >Open-source code</a
-        >
-        by Zosia S</footer>
-    </div>
     </div>
     <script src="src/app.js"></script>
   </body>

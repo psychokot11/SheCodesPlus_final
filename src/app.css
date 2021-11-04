@@ -1,1 +1,22 @@
+.appBodyWrapper {
+  max-width: 600px;
+  font-family: "Oxygen", sans-serif;
+  margin: 0 auto;
+  margin-top: 15px;
+}
 
+.appBody {
+  border: 1px solid;
+  border-color: rgb(165, 165, 165);
+  border-radius: 6px;
+  padding: 25px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.weatherEmojis,
+.weatherPic {
+  font-family: var(--bs-body-font-family);
+}
