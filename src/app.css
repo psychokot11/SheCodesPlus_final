@@ -1,6 +1,10 @@
+body {
+  background-color: #faf3f3;
+}
 .appBodyWrapper {
   max-width: 600px;
   font-family: "Oxygen", sans-serif;
+  color: black;
   margin: 0 auto;
   margin-top: 15px;
 }
@@ -10,13 +14,58 @@
   border-color: rgb(165, 165, 165);
   border-radius: 6px;
   padding: 25px;
+  background-color: #e1e5ea;
 }
 
-ul {
+.searchField {
+  font-size: 24px;
+}
+.searchButton {
+  font-size: 21px;
+  height: 43px;
+  color: #fff;
+  background-color: #da7f8f;
+  border-color: #da7f8f;
+  border-radius: 6px;
+  width: 129px;
+  transition: all 200ms ease-in-out;
+}
+
+.searchButton:hover {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.searchedCity {
+  padding-top: 5px;
+  font-size: 42px;
+}
+
+.dateAndConditions,
+.conditions,
+li {
   list-style-type: none;
+  padding: 0px;
+  margin: 0px;
 }
 
 .weatherEmojis,
 .weatherPic {
   font-family: var(--bs-body-font-family);
+}
+
+.moreInfoAll {
+  padding-top: 30px;
+}
+
+.moreInfo {
+  font-size: 36px;
+}
+
+.openSourceFooterLink,
+.celcius,
+.farenheit {
+  text-decoration: none;
+  color: #da7f8f;
 }
