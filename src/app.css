@@ -78,3 +78,8 @@ a:hover {
   color: #da7f8f;
   opacity: 0.8;
 }
+
+.forecast {
+  padding-top: 56px;
+  text-align: center;
+}
