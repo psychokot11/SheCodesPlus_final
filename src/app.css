@@ -32,7 +32,6 @@ body {
 }
 
 .searchButton:hover {
-  color: rgb(0, 0, 0);
   cursor: pointer;
   opacity: 0.8;
 }
@@ -68,4 +67,14 @@ li {
 .farenheit {
   text-decoration: none;
   color: #da7f8f;
+  transition: all 200ms ease-in-out;
+}
+
+a:active {
+  color: black;
+}
+
+a:hover {
+  color: #da7f8f;
+  opacity: 0.8;
 }
