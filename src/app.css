@@ -1,9 +1,10 @@
 body {
   background-color: #faf3f3;
+  font-family: "Oxygen", sans-serif;
+  font-size: 17px;
 }
 .appBodyWrapper {
   max-width: 600px;
-  font-family: "Oxygen", sans-serif;
   color: black;
   margin: 0 auto;
   margin-top: 15px;
@@ -49,9 +50,18 @@ li {
   margin: 0px;
 }
 
+.conditions {
+  padding-left: 10px;
+  font-size: 17px;
+}
+
 .weatherEmojis,
 .weatherPic {
   font-family: var(--bs-body-font-family);
+}
+
+.mainCondition::first-letter {
+  text-transform: uppercase;
 }
 
 .moreInfoAll {
@@ -59,7 +69,7 @@ li {
 }
 
 .moreInfo {
-  font-size: 36px;
+  font-size: 52px;
 }
 
 .openSourceFooterLink,
@@ -82,4 +92,5 @@ a:hover {
 .forecast {
   padding-top: 56px;
   text-align: center;
+  font-size: 17px;
 }
