@@ -13,8 +13,10 @@ function displayTempAndDate(response) {
   let iconId = response.data.weather[0].icon;
 
   console.log(iconId);
-  if (iconId === "01d" || iconId === "01n") {
+  if (iconId === "01d") {
     weatherIcon.innerHTML = "☀";
+  } else if (iconId === "01n") {
+    weatherIcon.innerHTML = "🌙";
   } else if (iconId === "02d" || iconId === "02n") {
     weatherIcon.innerHTML = "🌤";
   } else if (iconId === "03d" || iconId === "03n") {
@@ -53,7 +55,7 @@ function displayTempAndDate(response) {
     "Friday",
     "Saturday",
   ];
-  let day = date.getDate();
+  let day = date.getDay();
   dateElement.innerHTML = `${weekDay[day]} ${hour}:${minute}`;
 
   // celcius to farenheit
