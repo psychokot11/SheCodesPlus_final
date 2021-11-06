@@ -40,6 +40,7 @@ body {
 .searchedCity {
   padding-top: 5px;
   font-size: 42px;
+  text-transform: capitalize;
 }
 
 .dateAndConditions,
@@ -80,8 +81,8 @@ li {
   transition: all 200ms ease-in-out;
 }
 
-a:active {
-  color: black;
+a.current {
+  color: #d65069;
 }
 
 a:hover {

@@ -27,7 +27,7 @@
       <div class="appBodyWrapper">
         <div class="appBody">
           <div class="row">
-            <div class="col-6">
+            <form id="form">
               <input
                 type="search"
                 class="searchField"
@@ -35,12 +35,10 @@
                 placeholder="enter the city"
                 autocomplete="off"
               />
-            </div>
-            <div class="col-3">
-              <button type="button" class="searchButton" id="search-button">
+              <button type="submit" class="searchButton" id="search-button">
                 Search
               </button>
-            </div>
+            </form>
           </div>
           <h1 class="searchedCity" id="searched-city">City</h1>
           <ul class="dateAndConditions" id="date-and-conditions">
