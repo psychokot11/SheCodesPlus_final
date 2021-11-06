@@ -9,6 +9,29 @@ function displayTempAndDate(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  let weatherIcon = document.querySelector("#weather-pic");
+  let iconId = response.data.weather[0].icon;
+
+  console.log(iconId);
+  if (iconId === "01d" || iconId === "01n") {
+    weatherIcon.innerHTML = "☀";
+  } else if (iconId === "02d" || iconId === "02n") {
+    weatherIcon.innerHTML = "🌤";
+  } else if (iconId === "03d" || iconId === "03n") {
+    weatherIcon.innerHTML = "⛅";
+  } else if (iconId === "04d" || iconId === "04n") {
+    weatherIcon.innerHTML = "☁";
+  } else if (iconId === "09d" || iconId === "09n") {
+    weatherIcon.innerHTML = "🌧";
+  } else if (iconId === "10d" || iconId === "10n") {
+    weatherIcon.innerHTML = "🌦";
+  } else if (iconId === "11d" || iconId === "11n") {
+    weatherIcon.innerHTML = "⛈";
+  } else if (iconId === "13d" || iconId === "13n") {
+    weatherIcon.innerHTML = "❄";
+  } else if (iconId === "50d" || iconId === "50n") {
+    weatherIcon.innerHTML = "🌫";
+  }
 
   //date and time
   let dateElement = document.querySelector("#current-day");
@@ -52,11 +75,11 @@ function displayTempAndDate(response) {
 }
 
 let weatherApiKey = "5f499f0d563e2b69490e35e28cf5fd01";
-let city = "Paris";
+let cityInput = document.querySelector("#search-field");
+// city = `${cityInput.value}`;
+city = "Paris";
 let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`;
 axios.get(weatherUrl).then(displayTempAndDate);
-
-let searchButtonElem = document.querySelector("#form");
 
 function searchCity(event) {
   event.preventDefault();
@@ -65,4 +88,6 @@ function searchCity(event) {
   searchedCity.innerHTML = `${searchFieldInput.value}`;
   console.log(searchFieldInput.value);
 }
+
+let searchButtonElem = document.querySelector("#form");
 searchButtonElem.addEventListener("submit", searchCity);
