@@ -116,3 +116,28 @@ function displayInitialEmoji() {
   }
 }
 displayInitialEmoji();
+
+//weather forecast
+function showForecast(day) {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+    <div class="weekDays" id="week-days">${day}</div>
+        <div class="weatherEmojis ForecastWeatherEmojis" id="forecast-weather-emojis"> ☂ </div>
+              <div class="col maxMinTemp temperature">
+                <span class="maxTemp" id="max-temp"> 25° </span>
+                <span class="minTemp" id="mmin-temp"> 5° </span>
+              </div>
+    </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  console.log(forecastHTML);
+  forecastElement.innerHTML = forecastHTML;
+}
+
+showForecast();

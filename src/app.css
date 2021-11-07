@@ -109,3 +109,15 @@ a:hover {
   text-align: center;
   font-size: 17px;
 }
+
+.maxMinTemp {
+  font-size: 15px;
+}
+
+.maxTemp {
+  color: #da7f8f;
+}
+
+.weekDays {
+  font-weight: bolder;
+}
