@@ -4,7 +4,7 @@ function displayTempAndDate(response) {
   tempElement.innerHTML = Math.round(response.data.main.temp);
   let conditions = document.querySelector("#main-conditions");
   conditions.innerHTML = response.data.weather[0].description;
-  console.log(response.data);
+  //console.log(response.data);
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.main.humidity;
   let windElement = document.querySelector("#wind");
@@ -12,7 +12,6 @@ function displayTempAndDate(response) {
   let weatherIcon = document.querySelector("#weather-pic");
   let iconId = response.data.weather[0].icon;
 
-  console.log(iconId);
   if (iconId === "01d") {
     weatherIcon.innerHTML = "☀";
   } else if (iconId === "01n") {
@@ -90,10 +89,23 @@ function searchCity(event) {
   let searchedCity = document.querySelector("#searched-city");
   searchedCity.innerHTML = `${searchFieldInput.value}`;
   search(searchFieldInput.value);
-  console.log(searchFieldInput);
 }
 
 let searchButtonElem = document.querySelector("#form");
 searchButtonElem.addEventListener("submit", searchCity);
 
-search("Lisbon");
+function displayInitialEmoji() {
+  let initialEmojiElement = document.querySelector("#weather-pic");
+  let date = new Date();
+  let initialDate = date.getMonth();
+  if (initialDate === 11 || initialDate === 0 || initialDate === 1) {
+    initialEmojiElement.innerHTML = "⛄";
+  } else if (initialDate === 2 || initialDate === 3 || initialDate === 4) {
+    initialEmojiElement.innerHTML = "🌼";
+  } else if (initialDate === 5 || initialDate === 6 || initialDate === 7) {
+    initialEmojiElement.innerHTML = "⛱";
+  } else if (initialDate === 8 || initialDate === 9 || initialDate === 10) {
+    initialEmojiElement.innerHTML = "☂";
+  }
+}
+displayInitialEmoji();
