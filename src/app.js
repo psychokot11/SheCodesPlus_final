@@ -6,9 +6,9 @@ function displayTempAndDate(response) {
   conditions.innerHTML = response.data.weather[0].description;
   //console.log(response.data);
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = response.data.main.humidity;
+  humidityElement.innerHTML = `${response.data.main.humidity}%`;
   let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(response.data.wind.speed);
+  windElement.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
   let weatherIcon = document.querySelector("#weather-pic");
   let iconId = response.data.weather[0].icon;
 
