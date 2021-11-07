@@ -92,7 +92,16 @@ a.current {
 
 a:hover {
   color: #da7f8f;
-  opacity: 0.8;
+}
+
+.active {
+  color: black;
+}
+
+.active:hover {
+  cursor: default;
+  color: #000000;
+  opacity: 100%;
 }
 
 .forecast {

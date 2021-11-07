@@ -64,15 +64,22 @@ function displayTempAndDate(response) {
   function changeToCelcius(event) {
     event.preventDefault();
     tempElement.innerHTML = Math.round(response.data.main.temp);
+    celciusLink.classList.add("active");
+    farenheitLink.classList.remove("active");
   }
 
   function changeToFarenheit(event) {
     event.preventDefault();
     tempElement.innerHTML = Math.round((response.data.main.temp * 9) / 5 + 32);
+    farenheitLink.classList.add("active");
+    celciusLink.classList.remove("active");
   }
 
   celciusTemp.addEventListener("click", changeToCelcius);
   farenheitTemp.addEventListener("click", changeToFarenheit);
+
+  let celciusLink = document.querySelector("#celcius");
+  let farenheitLink = document.querySelector("#farenheit");
 }
 
 //search for city
