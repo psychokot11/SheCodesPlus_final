@@ -1,10 +1,42 @@
 function displayTempAndDate(response) {
+  //weather forecast
+  function showForecast(day) {
+    let forecastElement = document.querySelector("#forecast");
+    let forecastHTML = `<div class="row">`;
+    let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+    days.forEach(function (day) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+    <div class="weekDays" id="week-days">${day}</div>
+        <div class="weatherEmojis ForecastWeatherEmojis" id="forecast-weather-emojis"> ☂ </div>
+              <div class="col maxMinTemp temperature">
+                <span class="maxTemp" id="max-temp"> 25° </span>
+                <span class="minTemp" id="mmin-temp"> 5° </span>
+              </div>
+    </div>`;
+    });
+
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+  }
+  //get the coordinates
+  function getCoordinates(coordinates) {
+    let forecastApiKey = "5f499f0d563e2b69490e35e28cf5fd01";
+    let forecastApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${forecastApiKey}&units=metric`;
+    console.log(forecastApiUrl);
+    axios.get(forecastApiUrl).then(showForecast);
+  }
+  //get the coordinates --- call the function
+  getCoordinates(response.data.coord);
+
   //temperature and conditions
   let tempElement = document.querySelector("#temperature");
   tempElement.innerHTML = Math.round(response.data.main.temp);
   let conditions = document.querySelector("#main-conditions");
   conditions.innerHTML = response.data.weather[0].description;
-  //console.log(response.data);
+  console.log(response.data);
+
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
   let windElement = document.querySelector("#wind");
@@ -116,28 +148,3 @@ function displayInitialEmoji() {
   }
 }
 displayInitialEmoji();
-
-//weather forecast
-function showForecast(day) {
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col">
-    <div class="weekDays" id="week-days">${day}</div>
-        <div class="weatherEmojis ForecastWeatherEmojis" id="forecast-weather-emojis"> ☂ </div>
-              <div class="col maxMinTemp temperature">
-                <span class="maxTemp" id="max-temp"> 25° </span>
-                <span class="minTemp" id="mmin-temp"> 5° </span>
-              </div>
-    </div>`;
-  });
-
-  forecastHTML = forecastHTML + `</div>`;
-  console.log(forecastHTML);
-  forecastElement.innerHTML = forecastHTML;
-}
-
-showForecast();
