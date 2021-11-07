@@ -76,20 +76,24 @@ function displayTempAndDate(response) {
   farenheitTemp.addEventListener("click", changeToFarenheit);
 }
 
-let weatherApiKey = "5f499f0d563e2b69490e35e28cf5fd01";
-let cityInput = document.querySelector("#search-field");
-// city = `${cityInput.value}`;
-city = "Paris";
-let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`;
-axios.get(weatherUrl).then(displayTempAndDate);
+//search for city
+
+function search(city) {
+  let weatherApiKey = "5f499f0d563e2b69490e35e28cf5fd01";
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`;
+  axios.get(weatherUrl).then(displayTempAndDate);
+}
 
 function searchCity(event) {
   event.preventDefault();
   let searchFieldInput = document.querySelector("#search-field");
   let searchedCity = document.querySelector("#searched-city");
   searchedCity.innerHTML = `${searchFieldInput.value}`;
-  console.log(searchFieldInput.value);
+  search(searchFieldInput.value);
+  console.log(searchFieldInput);
 }
 
 let searchButtonElem = document.querySelector("#form");
 searchButtonElem.addEventListener("submit", searchCity);
+
+search("Lisbon");

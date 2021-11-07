@@ -20,16 +20,21 @@ body {
 
 .searchField {
   font-size: 24px;
+  max-width: 300px;
+  display: inline;
 }
 .searchButton {
   font-size: 21px;
-  height: 43px;
+  height: 50px;
   color: #fff;
   background-color: #da7f8f;
   border-color: #da7f8f;
   border-radius: 6px;
   width: 129px;
   transition: all 200ms ease-in-out;
+  display: inline;
+  position: relative;
+  left: 8px;
 }
 
 .searchButton:hover {
