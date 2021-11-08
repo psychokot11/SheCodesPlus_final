@@ -1,20 +1,79 @@
 function displayTempAndDate(response) {
+  //temperature and conditions
+  let tempElement = document.querySelector("#temperature");
+  tempElement.innerHTML = Math.round(response.data.main.temp);
+  let conditions = document.querySelector("#main-conditions");
+  conditions.innerHTML = response.data.weather[0].description;
+  //console.log(response.data);
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `${response.data.main.humidity}%`;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
+  let weatherIcon = document.querySelector("#weather-pic");
+  let iconId = response.data.weather[0].icon;
+
+  function weatherConditionsEmojis() {
+    if (iconId === "01d") {
+      weatherIcon.innerHTML = "☀";
+    } else if (iconId === "01n") {
+      weatherIcon.innerHTML = "🌙";
+    } else if (iconId === "02d" || iconId === "02n") {
+      weatherIcon.innerHTML = "🌤";
+    } else if (iconId === "03d" || iconId === "03n") {
+      weatherIcon.innerHTML = "⛅";
+    } else if (iconId === "04d" || iconId === "04n") {
+      weatherIcon.innerHTML = "☁";
+    } else if (iconId === "09d" || iconId === "09n") {
+      weatherIcon.innerHTML = "🌧";
+    } else if (iconId === "10d" || iconId === "10n") {
+      weatherIcon.innerHTML = "🌦";
+    } else if (iconId === "11d" || iconId === "11n") {
+      weatherIcon.innerHTML = "⛈";
+    } else if (iconId === "13d" || iconId === "13n") {
+      weatherIcon.innerHTML = "❄";
+    } else if (iconId === "50d" || iconId === "50n") {
+      weatherIcon.innerHTML = "🌫";
+    }
+  }
+  weatherConditionsEmojis();
+
+  //format the forecast date
+
+  function formatDate(formattedDate) {
+    let date = new Date(formattedDate * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    return days[day];
+  }
+
   //weather forecast
-  function showForecast(day) {
+  function showForecast(forecast) {
+    let forecastResponse = forecast.data.daily;
+    console.log(forecast);
+
     let forecastElement = document.querySelector("#forecast");
     let forecastHTML = `<div class="row">`;
-    let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-    days.forEach(function (day) {
-      forecastHTML =
-        forecastHTML +
-        `<div class="col">
-    <div class="weekDays" id="week-days">${day}</div>
-        <div class="weatherEmojis ForecastWeatherEmojis" id="forecast-weather-emojis"> ☂ </div>
+
+    forecastResponse.forEach(function (forecastDay, index) {
+      if (index < 5) {
+        forecastHTML =
+          forecastHTML +
+          `<div class="col">
+    <div class="weekDays" id="week-days">${formatDate(forecastDay.dt)}</div>
+        <div class="weatherEmojis ForecastWeatherEmojis" id="forecast-weather-emojis">${
+          forecastDay.weather[0].icon
+        }</div>
               <div class="col maxMinTemp temperature">
-                <span class="maxTemp" id="max-temp"> 25° </span>
-                <span class="minTemp" id="mmin-temp"> 5° </span>
+                <span class="maxTemp" id="max-temp"> ${Math.round(
+                  forecastDay.temp.max
+                )}° </span>
+                <span class="minTemp" id="mmin-temp"> ${Math.round(
+                  forecastDay.temp.min
+                )}° </span>
               </div>
     </div>`;
+      }
     });
 
     forecastHTML = forecastHTML + `</div>`;
@@ -29,42 +88,6 @@ function displayTempAndDate(response) {
   }
   //get the coordinates --- call the function
   getCoordinates(response.data.coord);
-
-  //temperature and conditions
-  let tempElement = document.querySelector("#temperature");
-  tempElement.innerHTML = Math.round(response.data.main.temp);
-  let conditions = document.querySelector("#main-conditions");
-  conditions.innerHTML = response.data.weather[0].description;
-  console.log(response.data);
-
-  let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = `${response.data.main.humidity}%`;
-  let windElement = document.querySelector("#wind");
-  windElement.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
-  let weatherIcon = document.querySelector("#weather-pic");
-  let iconId = response.data.weather[0].icon;
-
-  if (iconId === "01d") {
-    weatherIcon.innerHTML = "☀";
-  } else if (iconId === "01n") {
-    weatherIcon.innerHTML = "🌙";
-  } else if (iconId === "02d" || iconId === "02n") {
-    weatherIcon.innerHTML = "🌤";
-  } else if (iconId === "03d" || iconId === "03n") {
-    weatherIcon.innerHTML = "⛅";
-  } else if (iconId === "04d" || iconId === "04n") {
-    weatherIcon.innerHTML = "☁";
-  } else if (iconId === "09d" || iconId === "09n") {
-    weatherIcon.innerHTML = "🌧";
-  } else if (iconId === "10d" || iconId === "10n") {
-    weatherIcon.innerHTML = "🌦";
-  } else if (iconId === "11d" || iconId === "11n") {
-    weatherIcon.innerHTML = "⛈";
-  } else if (iconId === "13d" || iconId === "13n") {
-    weatherIcon.innerHTML = "❄";
-  } else if (iconId === "50d" || iconId === "50n") {
-    weatherIcon.innerHTML = "🌫";
-  }
 
   //date and time
   let dateElement = document.querySelector("#current-day");
