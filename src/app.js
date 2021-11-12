@@ -61,9 +61,9 @@ function displayTempAndDate(response) {
           forecastHTML +
           `<div class="col">
     <div class="weekDays" id="week-days">${formatDate(forecastDay.dt)}</div>
-        <div class="weatherEmojis ForecastWeatherEmojis" id="forecast-weather-emojis">${
-          forecastDay.weather[0].icon
-        }</div>
+        <div class="weatherEmojis ForecastWeatherEmojis" id="forecast-weather-emojis">
+          🌡
+        </div>
               <div class="col maxMinTemp temperature">
                 <span class="maxTemp" id="max-temp"> ${Math.round(
                   forecastDay.temp.max
