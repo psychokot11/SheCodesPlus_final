@@ -50,7 +50,7 @@ function displayTempAndDate(response) {
   //weather forecast
   function showForecast(forecast) {
     let forecastResponse = forecast.data.daily;
-    console.log(forecast);
+    //console.log(forecast);
 
     let forecastElement = document.querySelector("#forecast");
     let forecastHTML = `<div class="row">`;
@@ -62,7 +62,7 @@ function displayTempAndDate(response) {
           `<div class="col">
     <div class="weekDays" id="week-days">${formatDate(forecastDay.dt)}</div>
         <div class="weatherEmojis ForecastWeatherEmojis" id="forecast-weather-emojis">
-          🌡
+          🌡°C
         </div>
               <div class="col maxMinTemp temperature">
                 <span class="maxTemp" id="max-temp"> ${Math.round(
@@ -83,7 +83,7 @@ function displayTempAndDate(response) {
   function getCoordinates(coordinates) {
     let forecastApiKey = "5f499f0d563e2b69490e35e28cf5fd01";
     let forecastApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${forecastApiKey}&units=metric`;
-    console.log(forecastApiUrl);
+    //console.log(forecastApiUrl);
     axios.get(forecastApiUrl).then(showForecast);
   }
   //get the coordinates --- call the function
