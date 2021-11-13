@@ -1,10 +1,8 @@
 function displayTempAndDate(response) {
-  //temperature and conditions
   let tempElement = document.querySelector("#temperature");
   tempElement.innerHTML = Math.round(response.data.main.temp);
   let conditions = document.querySelector("#main-conditions");
   conditions.innerHTML = response.data.weather[0].description;
-  //console.log(response.data);
 
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
@@ -38,8 +36,6 @@ function displayTempAndDate(response) {
   }
   weatherConditionsEmojis();
 
-  //format the forecast date
-
   function formatDate(formattedDate) {
     let date = new Date(formattedDate * 1000);
     let day = date.getDay();
@@ -47,10 +43,8 @@ function displayTempAndDate(response) {
     return days[day];
   }
 
-  //weather forecast
   function showForecast(forecast) {
     let forecastResponse = forecast.data.daily;
-    //console.log(forecast);
 
     let forecastElement = document.querySelector("#forecast");
     let forecastHTML = `<div class="row">`;
@@ -79,17 +73,15 @@ function displayTempAndDate(response) {
     forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML;
   }
-  //get the coordinates
+
   function getCoordinates(coordinates) {
     let forecastApiKey = "5f499f0d563e2b69490e35e28cf5fd01";
     let forecastApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${forecastApiKey}&units=metric`;
-    //console.log(forecastApiUrl);
     axios.get(forecastApiUrl).then(showForecast);
   }
-  //get the coordinates --- call the function
+
   getCoordinates(response.data.coord);
 
-  //date and time
   let dateElement = document.querySelector("#current-day");
   let date = new Date();
   let hour = date.getHours();
@@ -112,7 +104,6 @@ function displayTempAndDate(response) {
   let day = date.getDay();
   dateElement.innerHTML = `${weekDay[day]} ${hour}:${minute}`;
 
-  // celcius to farenheit
   let celciusTemp = document.querySelector("#celcius");
   let farenheitTemp = document.querySelector("#farenheit");
 
@@ -136,8 +127,6 @@ function displayTempAndDate(response) {
   let celciusLink = document.querySelector("#celcius");
   let farenheitLink = document.querySelector("#farenheit");
 }
-
-//search for city
 
 function search(city) {
   let weatherApiKey = "5f499f0d563e2b69490e35e28cf5fd01";
