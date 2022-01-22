@@ -125,3 +125,21 @@ a:hover {
 .ForecastWeatherEmojis {
   color: rgb(0, 0, 0);
 }
+
+@media (max-width: 420px) {
+  .searchField {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .searchButton {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  .moreInfo {
+    font-size: 36px;
+  }
+}
